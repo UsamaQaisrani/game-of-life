@@ -1,5 +1,6 @@
 import pygame
 from pygame import Color
+from pattern import *
 
 BLACK = Color(0, 0, 0)
 WHITE = Color(255, 255, 255)
@@ -16,7 +17,7 @@ class Board:
         self.states = []
 
     def setup(self):
-        self.populate_grid()
+        self.grid = Pattern().setup()
         pygame.init()
         screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
         screen.fill(WHITE)
@@ -31,20 +32,15 @@ class Board:
         print(f"Width: {len(self.grid)}, Height: {len(self.grid[0])}")
         pygame.quit()
 
-    def populate_grid(self):
-        for x in range(self.cols):
-            grid_col = []
-            state_col = []
-            for y in range(self.rows):
-                rect = pygame.Rect(x * BLOCKSIZE, y * BLOCKSIZE, BLOCKSIZE, BLOCKSIZE)
-                grid_col.append(rect)
-                state_col.append(0)
-            self.grid.append(grid_col)
-            self.states.append(state_col)
-
     def draw_grid(self, screen):
-        for x in range(0, WINDOW_WIDTH, BLOCKSIZE):
-            for y in range(0, WINDOW_HEIGHT, BLOCKSIZE):
+        for i in range(len(self.grid)):
+            for j in range(len(self.grid[i])):
+                x = j * BLOCKSIZE
+                y = i * BLOCKSIZE
                 rect = pygame.Rect(x, y, BLOCKSIZE, BLOCKSIZE)
-                pygame.draw.rect(screen, GRAY, rect, 1)
-                
+                if self.grid[i][j] == 1:
+                    pygame.draw.rect(screen, BLACK, rect)  
+                else:
+                    pygame.draw.rect(screen, WHITE, rect)  
+                pygame.draw.rect(screen, BLACK, rect, 1)  
+                    

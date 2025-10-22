@@ -63,9 +63,7 @@ At every generation, the following rules apply:
 |------|--------------|
 | `main.py` | Main entry point; initializes the window and runs the loop. |
 | `patterns.py` | Contains predefined patterns (e.g., pattern1–pattern4). |
-| `game.py` | Grid logic: updating, drawing, and applying rules. |
-| `config.py` | Constants like grid size, colors, and timing. |
-
+| `Board.py` | Grid logic: updating, drawing, and applying rules. |
 ---
 
 ## How to Run

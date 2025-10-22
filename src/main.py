@@ -1,5 +1,8 @@
+from board import *
+
 def main():
-    pass
+    board = Board()
+    board.setup()
 
 
 if __name__ == "__main__":

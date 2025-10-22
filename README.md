@@ -3,7 +3,7 @@ A visually dynamic implementation of **Conway’s Game of Life** built using **P
 Watch cellular patterns evolve, collide, and stabilize in real time — powered by a **naive iteration algorithm** (with plans to integrate **Hashlife** optimization later).
 
 <p align="center">
-  <img src="preview.gif" alt="Game of Life Simulation" width="600"/>
+  <img src="assets/preview.gif" alt="Game of Life Simulation" width="600"/>
 </p>
 
 ---

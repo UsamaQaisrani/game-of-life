@@ -1,6 +1,4 @@
 # 🧬 Game of Life - Python
-A visually dynamic implementation of **Conway’s Game of Life** built using **Python** and **Pygame**.  
-Watch cellular patterns evolve, collide, and stabilize in real time — powered by a **naive iteration algorithm** (with plans to integrate **Hashlife** optimization later).
 
 <p align="center">
   <img src="assets/preview.gif" alt="Game of Life Simulation" width="600"/>

@@ -9,7 +9,7 @@ WINDOW_HEIGHT = 720
 
 class Board:
     def __init__(self) -> None:
-        pass
+        self.grid = []
 
     def setup(self):
         pygame.init()
@@ -18,16 +18,19 @@ class Board:
         running = True
 
         while running:
-            self.drawGrid(screen)
+            self.draw_grid(screen)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
-            pygame.display.update()
         pygame.quit()
 
-    def drawGrid(self, screen):
+    def draw_grid(self, screen):
         blockSize = 15 
         for x in range(0, WINDOW_WIDTH, blockSize):
+            grid_row = []
             for y in range(0, WINDOW_HEIGHT, blockSize):
                 rect = pygame.Rect(x, y, blockSize, blockSize)
                 pygame.draw.rect(screen, GRAY, rect, 1)
+                grid_row.append(rect)
+            self.grid.append(grid_row)
+                

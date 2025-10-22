@@ -1,6 +1,8 @@
 import pygame
 from pygame import Color
 from pattern import *
+from main import evolve
+import time
 
 BLACK = Color(0, 0, 0)
 WHITE = Color(255, 255, 255)
@@ -14,7 +16,6 @@ class Board:
         self.rows = WINDOW_HEIGHT // BLOCKSIZE
         self.cols = WINDOW_WIDTH // BLOCKSIZE
         self.grid = []
-        self.states = []
 
     def setup(self):
         self.grid = Pattern().setup()
@@ -29,8 +30,13 @@ class Board:
                 if event.type == pygame.QUIT:
                     running = False
             pygame.display.update()
-        print(f"Width: {len(self.grid)}, Height: {len(self.grid[0])}")
+            self.grid = evolve(self.grid)
+            time.sleep(0.5)
         pygame.quit()
+
+    def update(self, grid):
+        self.grid = grid
+        pygame.display.flip()
 
     def draw_grid(self, screen):
         for i in range(len(self.grid)):
